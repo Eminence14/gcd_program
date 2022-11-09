@@ -1,5 +1,8 @@
 // A program to get the Greatest Common Divisor
 // a = bq + r
+const gimmeGCD = document.querySelector('.gcd')
+const result = document.querySelector('.result')
+const reset = document.querySelector('.reset')
 
 let gcd;
 function getGCD(a, b) {
@@ -24,3 +27,20 @@ function give_gcd(a, b) {
     }
     return b
 }
+
+gimmeGCD.addEventListener('click', () => {
+    let inputA = document.getElementById('in_a').value
+    let inputB = document.getElementById('in_b').value
+    const newGCD = getGCD(inputA, inputB)
+    if (inputA === '' || inputB === '') {
+        result.textContent = 'input can\'t be null, add numbers'
+    } else {
+        result.textContent = `Your GCD is ${newGCD}`
+    }
+})
+
+reset.addEventListener('click', () => {
+    document.getElementById('in_a').value = ''
+    document.getElementById('in_b').value = ''
+    result.textContent = ''
+})
